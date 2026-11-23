@@ -1,0 +1,219 @@
+/* SMART PARK AI - Custom Professional Styles */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+:root {
+  --bg-navy-darkest: #070D1E;
+  --bg-navy-dark: #0B132B;
+  --bg-navy-card: #141E38;
+  --bg-navy-surface: #1C274C;
+  --accent-cyan: #00E5FF;
+  --accent-cyan-hover: #00B4D8;
+  --accent-blue: #3B82F6;
+  --status-available: #10B981;
+  --status-occupied: #EF4444;
+  --status-reserved: #F59E0B;
+  --status-selected: #00E5FF;
+  --status-disabled: #6B7280;
+  --text-white: #FFFFFF;
+  --text-dim: #94A3B8;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-navy-darkest);
+  color: var(--text-white);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C274C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00B4D8;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(20, 30, 56, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 229, 255, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.25s ease;
+}
+
+.glass-dropdown {
+  background: #0E172E;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Glow Effects */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.35);
+}
+
+/* Parking Facility Visual Layout */
+.parking-bay-grid {
+  background: radial-gradient(circle at 50% 50%, #101935 0%, #070D1E 100%);
+  border: 2px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  position: relative;
+}
+
+.parking-road-marking {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.25) 30px,
+    transparent 30px,
+    transparent 60px
+  );
+  height: 6px;
+}
+
+/* Parking Slot Cards */
+.slot-card {
+  position: relative;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.slot-card.available {
+  background: rgba(16, 185, 129, 0.12);
+  border: 2px solid #10B981;
+  color: #34D399;
+  cursor: pointer;
+}
+.slot-card.available:hover {
+  background: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.45);
+  transform: scale(1.03);
+}
+
+.slot-card.occupied {
+  background: rgba(239, 68, 68, 0.12);
+  border: 2px solid #EF4444;
+  color: #F87171;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.slot-card.reserved {
+  background: rgba(245, 158, 11, 0.12);
+  border: 2px solid #F59E0B;
+  color: #FBBF24;
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.slot-card.selected {
+  background: rgba(0, 229, 255, 0.25);
+  border: 2px solid #00E5FF;
+  color: #FFFFFF;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
+  transform: scale(1.05);
+}
+
+.slot-card.disabled {
+  background: rgba(107, 114, 128, 0.15);
+  border: 2px solid #4B5563;
+  color: #9CA3AF;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Computer Vision HUD Styling */
+.cv-viewfinder {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #00E5FF;
+  border-radius: 12px;
+  background: #000;
+}
+
+.cv-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #00E5FF, transparent);
+  box-shadow: 0 0 15px #00E5FF;
+  animation: scanline 2.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanline {
+  0% { top: 0%; opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { top: 100%; opacity: 0.8; }
+}
+
+/* Pulsing radar dot */
+.radar-pulse {
+  position: relative;
+}
+.radar-pulse::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: pulse 1.8s infinite;
+  opacity: 0.6;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* Printable Parking Pass Ticket */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-ticket, #printable-ticket * {
+    visibility: visible;
+  }
+  #printable-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #000 !important;
+    background: #FFF !important;
+  }
+}

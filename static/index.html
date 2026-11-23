@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI CAR PARKING – Vehicle Recommendation & Detection System</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#070D1E',
+              900: '#0B132B',
+              800: '#141E38',
+              700: '#1C274C',
+              600: '#2A3B66',
+            },
+            cyan: {
+              400: '#00E5FF',
+              500: '#00B4D8',
+              600: '#0077B6',
+            },
+            park: {
+              green: '#10B981',
+              red: '#EF4444',
+              yellow: '#F59E0B',
+              blue: '#3B82F6',
+              grey: '#6B7280',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+
+  <!-- React 18 & ReactDOM & Babel Standalone -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- HTML5 QR Code Scanner Library -->
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
+<body class="bg-[#070D1E] text-white min-h-screen selection:bg-cyan-500 selection:text-black">
+  <div id="root">
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="text-center">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-cyan-400 mb-4"></div>
+        <p class="text-cyan-400 text-lg font-semibold tracking-wide">Loading AI Car Parking & Vehicle Recommendation System...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- React Application Scripts -->
+  <script type="text/babel" src="/static/js/app.js"></script>
+</body>
+</html>
