@@ -10,7 +10,19 @@ DATA_DIR.mkdir(parents=True, exist_ok=True)
 DEMO_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
 STATIC_DIR.mkdir(parents=True, exist_ok=True)
 
-DATABASE_URL = f"sqlite:///{DATA_DIR / 'smart_park.db'}"
+DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
+
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgres://", "postgresql+psycopg://", 1
+    )
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgresql://", "postgresql+psycopg://", 1
+    )
+
+if not DATABASE_URL:
+    DATABASE_URL = f"sqlite:///{DATA_DIR / 'smart_park.db'}"
 
 SECRET_KEY = os.getenv("SECRET_KEY", "smart-park-ai-super-secret-college-key-2026")
 ALGORITHM = "HS256"
